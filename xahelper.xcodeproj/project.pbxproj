@@ -13,10 +13,11 @@
 		114366AA24E900C300102B62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366A024E900C300102B62 /* ViewController.m */; };
 		114366AB24E900C300102B62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366A424E900C300102B62 /* main.m */; };
 		114366AC24E900C300102B62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366A524E900C300102B62 /* AppDelegate.m */; };
+		BA3A09FFDCD3E498E5602478 /* libPods-xahelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8478ED90520CBC594F745F /* libPods-xahelper.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1143667924E8DAA700102B62 /* xahelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xahelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1143667924E8DAA700102B62 /* 我的助手.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "我的助手.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1143669C24E900C300102B62 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1143669D24E900C300102B62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1143669E24E900C300102B62 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -26,6 +27,10 @@
 		114366A424E900C300102B62 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		114366A524E900C300102B62 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		114366A624E900C300102B62 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		114366AF24E904C400102B62 /* xahelper.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xahelper.pch; sourceTree = "<group>"; };
+		3033E97FD70BBF66016502DC /* Pods-xahelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xahelper.release.xcconfig"; path = "Target Support Files/Pods-xahelper/Pods-xahelper.release.xcconfig"; sourceTree = "<group>"; };
+		6A5B25BA49F0FBE8B5A11B7B /* Pods-xahelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xahelper.debug.xcconfig"; path = "Target Support Files/Pods-xahelper/Pods-xahelper.debug.xcconfig"; sourceTree = "<group>"; };
+		FC8478ED90520CBC594F745F /* libPods-xahelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xahelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3A09FFDCD3E498E5602478 /* libPods-xahelper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,13 +50,15 @@
 			children = (
 				1143667B24E8DAA700102B62 /* xahelper */,
 				1143667A24E8DAA700102B62 /* Products */,
+				3EC95C5F4300550121D6623B /* Pods */,
+				56C8B1974D8A4FFD28BF9007 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		1143667A24E8DAA700102B62 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1143667924E8DAA700102B62 /* xahelper.app */,
+				1143667924E8DAA700102B62 /* 我的助手.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,10 +97,28 @@
 			children = (
 				114366A424E900C300102B62 /* main.m */,
 				114366A624E900C300102B62 /* Info.plist */,
+				114366AF24E904C400102B62 /* xahelper.pch */,
 				114366A324E900C300102B62 /* AppDelegate.h */,
 				114366A524E900C300102B62 /* AppDelegate.m */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		3EC95C5F4300550121D6623B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A5B25BA49F0FBE8B5A11B7B /* Pods-xahelper.debug.xcconfig */,
+				3033E97FD70BBF66016502DC /* Pods-xahelper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		56C8B1974D8A4FFD28BF9007 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC8478ED90520CBC594F745F /* libPods-xahelper.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1143669224E8DAAA00102B62 /* Build configuration list for PBXNativeTarget "xahelper" */;
 			buildPhases = (
+				D0F3B257CD48C389A5392C1D /* [CP] Check Pods Manifest.lock */,
 				1143667524E8DAA700102B62 /* Sources */,
 				1143667624E8DAA700102B62 /* Frameworks */,
 				1143667724E8DAA700102B62 /* Resources */,
+				114366AE24E9040D00102B62 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -112,7 +140,7 @@
 			);
 			name = xahelper;
 			productName = xahelper;
-			productReference = 1143667924E8DAA700102B62 /* xahelper.app */;
+			productReference = 1143667924E8DAA700102B62 /* 我的助手.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -159,6 +187,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		114366AE24E9040D00102B62 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\nif [ $CONFIGURATION == Release ]; then\nbuildNumber=`date +\"%y%m%d\"` \nelse\nbuildNumber=`date +\"%y%m%d.%H%M%S\"`\nfi\n/usr/libexec/PlistBuddy -c \"Set CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+		};
+		D0F3B257CD48C389A5392C1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-xahelper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1143667524E8DAA700102B62 /* Sources */ = {
@@ -286,19 +356,22 @@
 		};
 		1143669324E8DAAA00102B62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A5B25BA49F0FBE8B5A11B7B /* Pods-xahelper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VQ63C8H4S2;
+				GCC_PREFIX_HEADER = "${SRCROOT}/xahelper/Support Files/xahelper.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/xahelper/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = top.biaoxiaoa.xahelper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "我的助手";
 				PROVISIONING_PROFILE_SPECIFIER = xahelper;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -306,19 +379,22 @@
 		};
 		1143669424E8DAAA00102B62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3033E97FD70BBF66016502DC /* Pods-xahelper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VQ63C8H4S2;
+				GCC_PREFIX_HEADER = "${SRCROOT}/xahelper/Support Files/xahelper.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/xahelper/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = top.biaoxiaoa.xahelper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "我的助手";
 				PROVISIONING_PROFILE_SPECIFIER = xahelper;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
