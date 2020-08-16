@@ -13,6 +13,8 @@
 		114366AA24E900C300102B62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366A024E900C300102B62 /* ViewController.m */; };
 		114366AB24E900C300102B62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366A424E900C300102B62 /* main.m */; };
 		114366AC24E900C300102B62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366A524E900C300102B62 /* AppDelegate.m */; };
+		114366B424E9063B00102B62 /* AppLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366B324E9063B00102B62 /* AppLogManager.m */; };
+		114366B824E9073500102B62 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366B724E9073500102B62 /* AppManager.m */; };
 		BA3A09FFDCD3E498E5602478 /* libPods-xahelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8478ED90520CBC594F745F /* libPods-xahelper.a */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,10 @@
 		114366A524E900C300102B62 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		114366A624E900C300102B62 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		114366AF24E904C400102B62 /* xahelper.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xahelper.pch; sourceTree = "<group>"; };
+		114366B224E9063B00102B62 /* AppLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLogManager.h; sourceTree = "<group>"; };
+		114366B324E9063B00102B62 /* AppLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppLogManager.m; sourceTree = "<group>"; };
+		114366B624E9073500102B62 /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
+		114366B724E9073500102B62 /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
 		3033E97FD70BBF66016502DC /* Pods-xahelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xahelper.release.xcconfig"; path = "Target Support Files/Pods-xahelper/Pods-xahelper.release.xcconfig"; sourceTree = "<group>"; };
 		6A5B25BA49F0FBE8B5A11B7B /* Pods-xahelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xahelper.debug.xcconfig"; path = "Target Support Files/Pods-xahelper/Pods-xahelper.debug.xcconfig"; sourceTree = "<group>"; };
 		FC8478ED90520CBC594F745F /* libPods-xahelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xahelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +72,7 @@
 		1143667B24E8DAA700102B62 /* xahelper */ = {
 			isa = PBXGroup;
 			children = (
+				114366B024E9063B00102B62 /* Common */,
 				1143669F24E900C300102B62 /* Main */,
 				1143669B24E900C300102B62 /* Resource */,
 				114366A224E900C300102B62 /* Support Files */,
@@ -102,6 +109,33 @@
 				114366A524E900C300102B62 /* AppDelegate.m */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		114366B024E9063B00102B62 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				114366B524E9073500102B62 /* AppManager */,
+				114366B124E9063B00102B62 /* AppLogManager */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		114366B124E9063B00102B62 /* AppLogManager */ = {
+			isa = PBXGroup;
+			children = (
+				114366B224E9063B00102B62 /* AppLogManager.h */,
+				114366B324E9063B00102B62 /* AppLogManager.m */,
+			);
+			path = AppLogManager;
+			sourceTree = "<group>";
+		};
+		114366B524E9073500102B62 /* AppManager */ = {
+			isa = PBXGroup;
+			children = (
+				114366B624E9073500102B62 /* AppManager.h */,
+				114366B724E9073500102B62 /* AppManager.m */,
+			);
+			path = AppManager;
 			sourceTree = "<group>";
 		};
 		3EC95C5F4300550121D6623B /* Pods */ = {
@@ -235,9 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				114366B424E9063B00102B62 /* AppLogManager.m in Sources */,
 				114366AB24E900C300102B62 /* main.m in Sources */,
 				114366AA24E900C300102B62 /* ViewController.m in Sources */,
 				114366AC24E900C300102B62 /* AppDelegate.m in Sources */,
+				114366B824E9073500102B62 /* AppManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +400,7 @@
 				DEVELOPMENT_TEAM = VQ63C8H4S2;
 				GCC_PREFIX_HEADER = "${SRCROOT}/xahelper/Support Files/xahelper.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/xahelper/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -387,7 +423,7 @@
 				DEVELOPMENT_TEAM = VQ63C8H4S2;
 				GCC_PREFIX_HEADER = "${SRCROOT}/xahelper/Support Files/xahelper.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/xahelper/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,5 +8,20 @@
 
 #ifndef xahelper_pch
 #define xahelper_pch
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#ifdef DEBUG
+//开发模式输出 error warning info debug verbose
+static DDLogLevel ddLogLevel = DDLogLevelVerbose;
+//开发模式记录 error warning info debug
+static DDLogLevel fileLogLevel = DDLogLevelDebug;
+#define ISDEBUG 1
+#else
+//生产模式输出 error
+static DDLogLevel ddLogLevel = DDLogLevelError;
+//生产模式记录 error warning
+static DDLogLevel fileLogLevel = DDLogLevelWarning;
+#define ISDEBUG 0
+#endif
 
+#define NSLog(fmt, ...) NSLog((@"NSLog已禁用，信息输出请参阅AppLogManager.h") )
 #endif /* xahelper_pch */

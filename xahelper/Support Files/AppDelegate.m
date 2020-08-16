@@ -7,16 +7,17 @@
 //
 
 #import "AppDelegate.h"
-
+#import "AppManager.h"
 @interface AppDelegate ()
-
+@property(strong, nonatomic)AppManager *manager;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    NSLog(@"1111");
+    self.manager = [AppManager shareManager];
     return YES;
 }
 

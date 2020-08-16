@@ -2,5 +2,6 @@
 #source 'https://github.com/CocoaPods/Specs.git'
 target 'xahelper' do
   #use_frameworks!
+  pod 'CocoaLumberjack'
 end
 
