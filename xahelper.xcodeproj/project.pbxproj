@@ -167,6 +167,8 @@
 				1143667624E8DAA700102B62 /* Frameworks */,
 				1143667724E8DAA700102B62 /* Resources */,
 				114366AE24E9040D00102B62 /* ShellScript */,
+				77B4992191B0691829A326E5 /* [CP] Embed Pods Frameworks */,
+				B98A56583285B0CEC41CD3C2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -239,6 +241,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/usr/bin/env bash\nif [ $CONFIGURATION == Release ]; then\nbuildNumber=`date +\"%y%m%d\"` \nelse\nbuildNumber=`date +\"%y%m%d.%H%M%S\"`\nfi\n/usr/libexec/PlistBuddy -c \"Set CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+		};
+		77B4992191B0691829A326E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-xahelper/Pods-xahelper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-xahelper/Pods-xahelper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-xahelper/Pods-xahelper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B98A56583285B0CEC41CD3C2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-xahelper/Pods-xahelper-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-xahelper/Pods-xahelper-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-xahelper/Pods-xahelper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		D0F3B257CD48C389A5392C1D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

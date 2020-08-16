@@ -3,5 +3,8 @@
 target 'xahelper' do
   #use_frameworks!
   pod 'CocoaLumberjack'
+  pod 'MyLayout'
+  pod 'QMUIKit'
+  pod 'LookinServer', :configurations => ['Debug']
 end
 
