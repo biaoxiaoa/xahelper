@@ -10,6 +10,7 @@
 #define xahelper_pch
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <MyLayout/MyLayout.h>
+#import <QMUIKit/QMUIKit.h>
 #ifdef DEBUG
 //开发模式输出 error warning info debug verbose
 static DDLogLevel ddLogLevel = DDLogLevelVerbose;

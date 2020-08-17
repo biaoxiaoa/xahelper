@@ -47,6 +47,20 @@
     [self.driveView currentTime:year month:month day:day hour:hour minute:minute second:second];
 }
 
+-(void)driveTimeHour:(NSUInteger)hour minute:(NSUInteger)minute second:(NSUInteger)second{
+    [self.driveView driveTimeHour:hour minute:minute second:second];
+}
+
+-(void)cumulativeTimeHour:(NSUInteger)hour minute:(NSUInteger)minute second:(NSUInteger)second{
+    [self.driveView cumulativeTimeHour:hour minute:minute second:second];
+}
+-(void)driveStatusChanged:(DriveStatus)status{
+    if (status==DriveStatusResting) {
+        [self.driveView restStatus];
+    }else{
+        [self.driveView driveStatus];
+    }
+}
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
   return UIInterfaceOrientationMaskLandscapeLeft;
 }
@@ -57,6 +71,10 @@
         _driveView.leftPos.equalTo(@0);
         _driveView.bottomPos.equalTo(@0);
         _driveView.rightPos.equalTo(@0);
+        __weak typeof(self) weakSelf = self;
+        _driveView.tipBlock = ^{
+            [weakSelf.driveViewModel changeStatus];
+        };
     }
     return _driveView;
 }

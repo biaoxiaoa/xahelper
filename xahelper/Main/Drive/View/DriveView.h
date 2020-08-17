@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^driveTimeLabelTipClickBlock)(void);
 @interface DriveView : UIView
 
 /// 当前时间
@@ -23,4 +23,24 @@
               hour:(NSUInteger)hour
             minute:(NSUInteger)minute
             second:(NSUInteger)second;
+
+/// 行驶时间
+/// @param hour 时
+/// @param minute 分
+/// @param second 秒
+-(void)driveTimeHour:(NSUInteger)hour
+              minute:(NSUInteger)minute
+              second:(NSUInteger)second;
+
+/// 累计时间
+/// @param hour 时
+/// @param minute 分
+/// @param second 秒
+-(void)cumulativeTimeHour:(NSUInteger)hour
+                   minute:(NSUInteger)minute
+                   second:(NSUInteger)second;
+
+@property(copy ,nonatomic)driveTimeLabelTipClickBlock   tipBlock;
+-(void)driveStatus;
+-(void)restStatus;
 @end

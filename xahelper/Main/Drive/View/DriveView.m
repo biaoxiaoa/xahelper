@@ -11,22 +11,31 @@
 @interface DriveView()
 
 /// 根布局
-@property(strong, nonatomic)MyLinearLayout *rootLayout;
+@property (strong, nonatomic) MyLinearLayout *rootLayout;
 
 /// 左侧内容
-@property(strong, nonatomic)MyLinearLayout *leftLayout;
+@property (strong, nonatomic) MyLinearLayout *leftLayout;
 
 /// 中间内容
-@property(strong, nonatomic)MyLinearLayout *middleLayout;
+@property (strong, nonatomic) MyLinearLayout *middleLayout;
 
 /// 右侧内容
-@property(strong, nonatomic)MyLinearLayout *rightLayout;
+@property (strong, nonatomic) MyLinearLayout *rightLayout;
 
 /// 日期
-@property(strong, nonatomic)UILabel *dateLabel;
+@property (strong, nonatomic) UILabel *dateLabel;
 
 /// 当前时间
-@property(strong, nonatomic)TimeView *currentTimeView;
+@property (strong, nonatomic) TimeView *currentTimeView;
+
+/// 连续行驶
+@property (strong, nonatomic) UILabel * driveTimeLabel;
+@property (strong, nonatomic) TimeView *driveTimeView;
+
+/// 累计
+@property (strong, nonatomic) UILabel * cumulativeLabel;
+@property (strong, nonatomic) TimeView * cumulativeView;
+
 @end
 @implementation DriveView
 - (instancetype)init
@@ -45,9 +54,19 @@
     [self.rootLayout addSubview:self.rightLayout];
     [self.rootLayout equalizeSubviews:YES withSpace:10];
     
+    [self initLeftLayout];
+}
+#pragma mark 初始化左侧
+-(void)initLeftLayout{
     [self.leftLayout addSubview:self.dateLabel];
     [self.leftLayout addSubview:self.currentTimeView];
+    [self.leftLayout addSubview:self.driveTimeLabel];
+    [self.leftLayout addSubview:self.driveTimeView];
+    [self.leftLayout addSubview:self.cumulativeLabel];
+    [self.leftLayout addSubview:self.cumulativeView];
+    [self.leftLayout equalizeSubviewsSpace:YES];
 }
+
 -(void)currentTime:(NSUInteger)year
              month:(NSUInteger)month
                day:(NSUInteger)day
@@ -56,6 +75,37 @@
             second:(NSUInteger)second{
     self.dateLabel.text = [NSString stringWithFormat:@"%ld-%02ld-%02ld",year,month,day];
     [self.currentTimeView updateTime:hour minute:minute second:second];
+}
+
+-(void)driveTimeHour:(NSUInteger)hour
+              minute:(NSUInteger)minute
+              second:(NSUInteger)second{
+    [self.driveTimeView updateTime:hour
+                            minute:minute
+                            second:second];
+}
+
+-(void)cumulativeTimeHour:(NSUInteger)hour
+                   minute:(NSUInteger)minute
+                   second:(NSUInteger)second{
+    [self.cumulativeView updateTime:hour
+                             minute:minute
+                             second:second];
+}
+-(void)driveStatus{
+    self.driveTimeLabel.text = @"连续行驶";
+    self.cumulativeLabel.text = @"累计行驶";
+}
+-(void)restStatus{
+    self.driveTimeLabel.text = @"连续休息";
+    self.cumulativeLabel.text = @"累计休息";
+}
+#pragma mark label点击
+-(void)driveTimeLabelTipAction{
+    
+    if (self.tipBlock) {
+        self.tipBlock();
+    }
 }
 -(MyLinearLayout *)rootLayout{
     if (_rootLayout == nil) {
@@ -69,19 +119,43 @@
     return _rootLayout;
 }
 
+-(UILabel *)commonLabel{
+    UILabel *label = [[UILabel alloc]init];
+    label.font = [UIFont boldSystemFontOfSize:40];
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.leftPos.equalTo(@0);
+    label.rightPos.equalTo(@0);
+    label.heightSize.equalTo(@(MyLayoutSize.wrap)).add(10);
+    return label;
+}
+
 -(UILabel *)dateLabel{
     if (_dateLabel == nil) {
-        _dateLabel = [[UILabel alloc]init];
-        _dateLabel.font = [UIFont boldSystemFontOfSize:40];
-        _dateLabel.textColor = [UIColor whiteColor];
-        _dateLabel.text = @"2020-08-17";
-        _dateLabel.textAlignment = NSTextAlignmentCenter;
-        _dateLabel.topPos.equalTo(@5);
-        _dateLabel.leftPos.equalTo(@0);
-        _dateLabel.rightPos.equalTo(@0);
-        _dateLabel.heightSize.equalTo(@(MyLayoutSize.wrap)).add(10);
+        _dateLabel = [self commonLabel];
     }
     return _dateLabel;
+}
+
+-(UILabel *)driveTimeLabel{
+    if (_driveTimeLabel == nil) {
+        _driveTimeLabel = [self commonLabel];
+        _driveTimeLabel.text = @"连续行驶";
+        _driveTimeLabel.font = [UIFont boldSystemFontOfSize:30];
+        _driveTimeLabel.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tip = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(driveTimeLabelTipAction)];
+        [_driveTimeLabel addGestureRecognizer:tip];
+    }
+    return _driveTimeLabel;
+}
+
+-(UILabel *)cumulativeLabel{
+    if (_cumulativeLabel == nil) {
+        _cumulativeLabel = [self commonLabel];
+        _cumulativeLabel.text = @"累计行驶";
+        _cumulativeLabel.font = [UIFont boldSystemFontOfSize:30];
+    }
+    return _cumulativeLabel;
 }
 
 
@@ -89,13 +163,35 @@
     if (_currentTimeView == nil) {
         _currentTimeView = [[TimeView alloc]init];
         _currentTimeView.backgroundColor = [UIColor clearColor];
-        _currentTimeView.topPos.equalTo(self.dateLabel.bottomPos);
         _currentTimeView.leftPos.equalTo(@0);
         _currentTimeView.rightPos.equalTo(@0);
-        _currentTimeView.heightSize.equalTo(@(MyLayoutSize.wrap)).add(10);
+        _currentTimeView.heightSize.equalTo(@(MyLayoutSize.wrap));
     }
     return _currentTimeView;
 }
+
+-(TimeView *)driveTimeView{
+    if (_driveTimeView == nil) {
+        _driveTimeView = [[TimeView alloc]init];
+        _driveTimeView.backgroundColor = [UIColor clearColor];
+        _driveTimeView.leftPos.equalTo(@0);
+        _driveTimeView.rightPos.equalTo(@0);
+        _driveTimeView.heightSize.equalTo(@(MyLayoutSize.wrap));
+    }
+    return _driveTimeView;
+}
+
+-(TimeView *)cumulativeView{
+    if (_cumulativeView == nil) {
+        _cumulativeView = [[TimeView alloc]init];
+        _cumulativeView.backgroundColor = [UIColor clearColor];
+        _cumulativeView.leftPos.equalTo(@0);
+        _cumulativeView.rightPos.equalTo(@0);
+        _cumulativeView.heightSize.equalTo(@(MyLayoutSize.wrap));
+    }
+    return _cumulativeView;
+}
+
 -(MyLinearLayout *)leftLayout{
     if (_leftLayout == nil) {
         _leftLayout = [MyLinearLayout linearLayoutWithOrientation:MyOrientation_Vert];
