@@ -21,6 +21,7 @@
 		114366B424E9063B00102B62 /* AppLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366B324E9063B00102B62 /* AppLogManager.m */; };
 		114366B824E9073500102B62 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366B724E9073500102B62 /* AppManager.m */; };
 		1154A49C24EA13AF0021098C /* CarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154A49B24EA13AF0021098C /* CarModel.m */; };
+		116B3BA524EA76C20099699D /* SpeakManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 116B3BA324EA76C20099699D /* SpeakManager.m */; };
 		BA3A09FFDCD3E498E5602478 /* libPods-xahelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8478ED90520CBC594F745F /* libPods-xahelper.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,8 @@
 		114366B724E9073500102B62 /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
 		1154A49A24EA13AF0021098C /* CarModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarModel.h; sourceTree = "<group>"; };
 		1154A49B24EA13AF0021098C /* CarModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarModel.m; sourceTree = "<group>"; };
+		116B3BA324EA76C20099699D /* SpeakManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakManager.m; sourceTree = "<group>"; };
+		116B3BA424EA76C20099699D /* SpeakManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakManager.h; sourceTree = "<group>"; };
 		3033E97FD70BBF66016502DC /* Pods-xahelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xahelper.release.xcconfig"; path = "Target Support Files/Pods-xahelper/Pods-xahelper.release.xcconfig"; sourceTree = "<group>"; };
 		6A5B25BA49F0FBE8B5A11B7B /* Pods-xahelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xahelper.debug.xcconfig"; path = "Target Support Files/Pods-xahelper/Pods-xahelper.debug.xcconfig"; sourceTree = "<group>"; };
 		FC8478ED90520CBC594F745F /* libPods-xahelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xahelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +186,7 @@
 		114366B024E9063B00102B62 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				116B3BA224EA76C20099699D /* SpeakManager */,
 				111E0C4224E912DE00E83B5E /* Controller */,
 				114366B524E9073500102B62 /* AppManager */,
 				114366B124E9063B00102B62 /* AppLogManager */,
@@ -206,6 +210,15 @@
 				114366B724E9073500102B62 /* AppManager.m */,
 			);
 			path = AppManager;
+			sourceTree = "<group>";
+		};
+		116B3BA224EA76C20099699D /* SpeakManager */ = {
+			isa = PBXGroup;
+			children = (
+				116B3BA424EA76C20099699D /* SpeakManager.h */,
+				116B3BA324EA76C20099699D /* SpeakManager.m */,
+			);
+			path = SpeakManager;
 			sourceTree = "<group>";
 		};
 		3EC95C5F4300550121D6623B /* Pods */ = {
@@ -375,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				116B3BA524EA76C20099699D /* SpeakManager.m in Sources */,
 				114366B424E9063B00102B62 /* AppLogManager.m in Sources */,
 				114366AB24E900C300102B62 /* main.m in Sources */,
 				114366AA24E900C300102B62 /* ViewController.m in Sources */,

@@ -6,13 +6,19 @@
 //  Copyright © 2020 小A. All rights reserved.
 //
 
+//播报间隔
+#define speakCurrentTimeInterreveal 25 * 60
+
 #import "DriveViewModel.h"
+#import "SpeakManager.h"
 @interface DriveViewModel()
+@property (strong, nonatomic) SpeakManager *speaker;
 @property (assign, nonatomic) NSUInteger driveTime;//行驶计时
 @property (assign, nonatomic) NSUInteger driveCumulativeTime;//行驶累计
 @property (assign, nonatomic) NSUInteger restTime;//休息计时
 @property (assign, nonatomic) NSUInteger restCumulativeTime;//休息累计
 @property(strong, nonatomic)NSTimer *timer;
+@property (assign, nonatomic) NSUInteger speakTime;
 @end
 @implementation DriveViewModel
 - (instancetype)init
@@ -46,6 +52,39 @@
         [self rest];
     }
 }
+#pragma mark 播报
+-(void)speak{
+    if (self.status!=DriveStatusDriving) {
+        return;
+    }
+    if (self.speakTime == speakCurrentTimeInterreveal) {
+        NSDictionary *timeInfo = [self nowTime];
+        NSInteger year = [timeInfo[@"year"] integerValue];
+        NSInteger month =  [timeInfo[@"month"] integerValue];
+        NSInteger day =  [timeInfo[@"day"] integerValue];
+        NSInteger hour = [timeInfo[@"hours"] integerValue];
+        NSInteger minute = [timeInfo[@"minutes"] integerValue];
+        NSString *message = [NSString stringWithFormat:@"现在是%ld年%ld月%ld日%ld时%ld分",year,month,day,hour,minute];
+        timeInfo = [self timeFormatted:self.driveTime];
+        hour = 1;
+        minute = [timeInfo[@"minutes"] integerValue];
+        if (hour > 0 && minute >0) {
+            message = [NSString stringWithFormat:@"%@,您已连续行驶%ld小时%ld分",message,hour,minute];
+        }else if (hour > 0){
+            message = [NSString stringWithFormat:@"%@,您已连续行驶%ld小时",message,hour];
+        }else if (minute > 0) {
+            if ([message containsString:@"您已连续行驶"]) {
+                message = [NSString stringWithFormat:@"%@,%ld分",message,minute];
+            }else{
+                message = [NSString stringWithFormat:@"%@,您已连续行驶%ld分钟",message,minute];
+            }
+        }
+        DDLogVerbose(@"%@",message);
+        [self speakMessage:message];
+        self.speakTime = 0;
+    }
+    self.speakTime++;
+}
 #pragma mark 更改状态
 - (void)changeStatus{
     QMUIAlertAction *action = nil;
@@ -65,11 +104,13 @@
 }
 #pragma mark 行驶状态
 -(void)driveSatatus{
+    [self speakMessage:@"注意安全"];
     self.status = DriveStatusDriving;
     self.restTime = 0;
 }
 #pragma mark 休息状态
 -(void)restStatus{
+    [self speakMessage:@"把能量回满后在重新出发吧..."];
     self.status = DriveStatusResting;
     self.driveTime = 0;
 }
@@ -92,6 +133,7 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(cumulativeTimeHour:minute:second:)]) {
         [self.delegate cumulativeTimeHour:hour minute:minute second:second];
     }
+    [self speak];
 }
 
 #pragma mark 休息
@@ -113,6 +155,12 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(cumulativeTimeHour:minute:second:)]) {
         [self.delegate cumulativeTimeHour:hour minute:minute second:second];
     }
+}
+
+-(void)speakMessage:(NSString *)message{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [self.speaker speakMessage:message];
+    });
 }
 
 -(void)showAlert:(NSString *)message alertAction:(QMUIAlertAction *)action{
@@ -158,5 +206,10 @@
         [self.delegate driveStatusChanged:_status];
     }
 }
-
+-(SpeakManager *)speaker{
+    if (_speaker == nil) {
+        _speaker = [SpeakManager shareManager];
+    }
+    return _speaker;
+}
 @end
