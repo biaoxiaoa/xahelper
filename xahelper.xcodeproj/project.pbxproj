@@ -10,7 +10,7 @@
 		111E0C4524E912FD00E83B5E /* HelperController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111E0C4424E912FD00E83B5E /* HelperController.m */; };
 		111E0C4D24E9237A00E83B5E /* DriveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111E0C4C24E9237A00E83B5E /* DriveVC.m */; };
 		111E0C5024E923A800E83B5E /* DriveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 111E0C4F24E923A800E83B5E /* DriveView.m */; };
-		111E0C5324E9255B00E83B5E /* DriveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 111E0C5224E9255B00E83B5E /* DriveModel.m */; };
+		111E0C5324E9255B00E83B5E /* DriveViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 111E0C5224E9255B00E83B5E /* DriveViewModel.m */; };
 		111E0C5624E9290F00E83B5E /* TimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 111E0C5424E9290F00E83B5E /* TimeView.m */; };
 		114366A724E900C300102B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1143669C24E900C300102B62 /* LaunchScreen.storyboard */; };
 		114366A824E900C300102B62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1143669D24E900C300102B62 /* Assets.xcassets */; };
@@ -20,6 +20,7 @@
 		114366AC24E900C300102B62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366A524E900C300102B62 /* AppDelegate.m */; };
 		114366B424E9063B00102B62 /* AppLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366B324E9063B00102B62 /* AppLogManager.m */; };
 		114366B824E9073500102B62 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114366B724E9073500102B62 /* AppManager.m */; };
+		1154A49C24EA13AF0021098C /* CarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154A49B24EA13AF0021098C /* CarModel.m */; };
 		BA3A09FFDCD3E498E5602478 /* libPods-xahelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8478ED90520CBC594F745F /* libPods-xahelper.a */; };
 /* End PBXBuildFile section */
 
@@ -30,8 +31,8 @@
 		111E0C4C24E9237A00E83B5E /* DriveVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriveVC.m; sourceTree = "<group>"; };
 		111E0C4E24E923A800E83B5E /* DriveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveView.h; sourceTree = "<group>"; };
 		111E0C4F24E923A800E83B5E /* DriveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriveView.m; sourceTree = "<group>"; };
-		111E0C5124E9255B00E83B5E /* DriveModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveModel.h; sourceTree = "<group>"; };
-		111E0C5224E9255B00E83B5E /* DriveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriveModel.m; sourceTree = "<group>"; };
+		111E0C5124E9255B00E83B5E /* DriveViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveViewModel.h; sourceTree = "<group>"; };
+		111E0C5224E9255B00E83B5E /* DriveViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriveViewModel.m; sourceTree = "<group>"; };
 		111E0C5424E9290F00E83B5E /* TimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeView.m; sourceTree = "<group>"; };
 		111E0C5524E9290F00E83B5E /* TimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeView.h; sourceTree = "<group>"; };
 		1143667924E8DAA700102B62 /* 我的助手.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "我的助手.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +50,8 @@
 		114366B324E9063B00102B62 /* AppLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppLogManager.m; sourceTree = "<group>"; };
 		114366B624E9073500102B62 /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
 		114366B724E9073500102B62 /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
+		1154A49A24EA13AF0021098C /* CarModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarModel.h; sourceTree = "<group>"; };
+		1154A49B24EA13AF0021098C /* CarModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarModel.m; sourceTree = "<group>"; };
 		3033E97FD70BBF66016502DC /* Pods-xahelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xahelper.release.xcconfig"; path = "Target Support Files/Pods-xahelper/Pods-xahelper.release.xcconfig"; sourceTree = "<group>"; };
 		6A5B25BA49F0FBE8B5A11B7B /* Pods-xahelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xahelper.debug.xcconfig"; path = "Target Support Files/Pods-xahelper/Pods-xahelper.debug.xcconfig"; sourceTree = "<group>"; };
 		FC8478ED90520CBC594F745F /* libPods-xahelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xahelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,8 +91,10 @@
 		111E0C4824E9235C00E83B5E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				111E0C5124E9255B00E83B5E /* DriveModel.h */,
-				111E0C5224E9255B00E83B5E /* DriveModel.m */,
+				111E0C5124E9255B00E83B5E /* DriveViewModel.h */,
+				111E0C5224E9255B00E83B5E /* DriveViewModel.m */,
+				1154A49A24EA13AF0021098C /* CarModel.h */,
+				1154A49B24EA13AF0021098C /* CarModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -375,9 +380,10 @@
 				114366AA24E900C300102B62 /* ViewController.m in Sources */,
 				111E0C5024E923A800E83B5E /* DriveView.m in Sources */,
 				114366AC24E900C300102B62 /* AppDelegate.m in Sources */,
-				111E0C5324E9255B00E83B5E /* DriveModel.m in Sources */,
+				111E0C5324E9255B00E83B5E /* DriveViewModel.m in Sources */,
 				111E0C4D24E9237A00E83B5E /* DriveVC.m in Sources */,
 				111E0C5624E9290F00E83B5E /* TimeView.m in Sources */,
+				1154A49C24EA13AF0021098C /* CarModel.m in Sources */,
 				114366B824E9073500102B62 /* AppManager.m in Sources */,
 				111E0C4524E912FD00E83B5E /* HelperController.m in Sources */,
 			);

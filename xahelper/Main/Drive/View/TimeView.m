@@ -30,13 +30,13 @@
     [self.rootLayout addSubview:self.minuteLabel];
     [self.rootLayout addSubview:self.secondLabel];
 }
-
--(void)updateTime:(NSInteger)hour
-           minute:(NSInteger)minute
-           second:(NSInteger)second{
-    self.hourLabel.text = [NSString stringWithFormat:@"%02lu",hour];
-    self.minuteLabel.text = [NSString stringWithFormat:@"%02lu",minute];
-    self.secondLabel.text = [NSString stringWithFormat:@"%02lu",second];
+#pragma mark 更新时间
+-(void)updateTime:(NSUInteger)hour
+           minute:(NSUInteger)minute
+           second:(NSUInteger)second{
+    self.hourLabel.text = [NSString stringWithFormat:@"%02ld",hour];
+    self.minuteLabel.text = [NSString stringWithFormat:@"%02ld",minute];
+    self.secondLabel.text = [NSString stringWithFormat:@"%02ld",second];
 }
 
 -(MyLinearLayout *)rootLayout{

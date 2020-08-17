@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface TimeView : UIView
--(void)updateTime:(NSInteger)hour
-           minute:(NSInteger)minute
-           second:(NSInteger)second;
+
+/// 更新时间
+/// @param hour 小时
+/// @param minute 分钟
+/// @param second 秒
+-(void)updateTime:(NSUInteger)hour
+           minute:(NSUInteger)minute
+           second:(NSUInteger)second;
 @end

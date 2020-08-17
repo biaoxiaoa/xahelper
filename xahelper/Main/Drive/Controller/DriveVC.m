@@ -8,8 +8,10 @@
 
 #import "DriveVC.h"
 #import "DriveView.h"
-@interface DriveVC ()
+#import "DriveViewModel.h"
+@interface DriveVC ()<DriveViewModelDelegate>
 @property(strong, nonatomic)DriveView *driveView;
+@property(strong, nonatomic)DriveViewModel *driveViewModel;
 @end
 
 @implementation DriveVC
@@ -31,8 +33,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.driveViewModel.delegate = self;
 }
 
+#pragma mark DriveViewModelDelegate
+-(void)currentTime:(NSUInteger)year
+             month:(NSUInteger)month
+               day:(NSUInteger)day
+              hour:(NSUInteger)hour
+            minute:(NSUInteger)minute
+            second:(NSUInteger)second{
+    
+    [self.driveView currentTime:year month:month day:day hour:hour minute:minute second:second];
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+  return UIInterfaceOrientationMaskLandscapeLeft;
+}
 -(DriveView *)driveView{
     if (_driveView == nil) {
         _driveView = [[DriveView alloc]init];
@@ -42,5 +59,11 @@
         _driveView.rightPos.equalTo(@0);
     }
     return _driveView;
+}
+-(DriveViewModel *)driveViewModel{
+    if (_driveViewModel == nil) {
+        _driveViewModel = [[DriveViewModel alloc]init];
+    }
+    return _driveViewModel;
 }
 @end
