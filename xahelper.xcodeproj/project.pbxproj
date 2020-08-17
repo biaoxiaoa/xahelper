@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111E0C4524E912FD00E83B5E /* HelperController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111E0C4424E912FD00E83B5E /* HelperController.m */; };
+		111E0C4D24E9237A00E83B5E /* DriveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111E0C4C24E9237A00E83B5E /* DriveVC.m */; };
+		111E0C5024E923A800E83B5E /* DriveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 111E0C4F24E923A800E83B5E /* DriveView.m */; };
+		111E0C5324E9255B00E83B5E /* DriveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 111E0C5224E9255B00E83B5E /* DriveModel.m */; };
+		111E0C5624E9290F00E83B5E /* TimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 111E0C5424E9290F00E83B5E /* TimeView.m */; };
 		114366A724E900C300102B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1143669C24E900C300102B62 /* LaunchScreen.storyboard */; };
 		114366A824E900C300102B62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1143669D24E900C300102B62 /* Assets.xcassets */; };
 		114366A924E900C300102B62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1143669E24E900C300102B62 /* Main.storyboard */; };
@@ -19,6 +24,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		111E0C4324E912FD00E83B5E /* HelperController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelperController.h; sourceTree = "<group>"; };
+		111E0C4424E912FD00E83B5E /* HelperController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelperController.m; sourceTree = "<group>"; };
+		111E0C4B24E9237A00E83B5E /* DriveVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveVC.h; sourceTree = "<group>"; };
+		111E0C4C24E9237A00E83B5E /* DriveVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriveVC.m; sourceTree = "<group>"; };
+		111E0C4E24E923A800E83B5E /* DriveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveView.h; sourceTree = "<group>"; };
+		111E0C4F24E923A800E83B5E /* DriveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriveView.m; sourceTree = "<group>"; };
+		111E0C5124E9255B00E83B5E /* DriveModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveModel.h; sourceTree = "<group>"; };
+		111E0C5224E9255B00E83B5E /* DriveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriveModel.m; sourceTree = "<group>"; };
+		111E0C5424E9290F00E83B5E /* TimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeView.m; sourceTree = "<group>"; };
+		111E0C5524E9290F00E83B5E /* TimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeView.h; sourceTree = "<group>"; };
 		1143667924E8DAA700102B62 /* 我的助手.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "我的助手.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1143669C24E900C300102B62 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1143669D24E900C300102B62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +66,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		111E0C4224E912DE00E83B5E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				111E0C4324E912FD00E83B5E /* HelperController.h */,
+				111E0C4424E912FD00E83B5E /* HelperController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		111E0C4724E920CE00E83B5E /* Drive */ = {
+			isa = PBXGroup;
+			children = (
+				111E0C4A24E9235C00E83B5E /* Controller */,
+				111E0C4824E9235C00E83B5E /* Model */,
+				111E0C4924E9235C00E83B5E /* View */,
+			);
+			path = Drive;
+			sourceTree = "<group>";
+		};
+		111E0C4824E9235C00E83B5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				111E0C5124E9255B00E83B5E /* DriveModel.h */,
+				111E0C5224E9255B00E83B5E /* DriveModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		111E0C4924E9235C00E83B5E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				111E0C4E24E923A800E83B5E /* DriveView.h */,
+				111E0C4F24E923A800E83B5E /* DriveView.m */,
+				111E0C5524E9290F00E83B5E /* TimeView.h */,
+				111E0C5424E9290F00E83B5E /* TimeView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		111E0C4A24E9235C00E83B5E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				111E0C4B24E9237A00E83B5E /* DriveVC.h */,
+				111E0C4C24E9237A00E83B5E /* DriveVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		1143667024E8DAA700102B62 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +156,7 @@
 		1143669F24E900C300102B62 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				111E0C4724E920CE00E83B5E /* Drive */,
 				114366A024E900C300102B62 /* ViewController.m */,
 				114366A124E900C300102B62 /* ViewController.h */,
 			);
@@ -114,6 +178,7 @@
 		114366B024E9063B00102B62 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				111E0C4224E912DE00E83B5E /* Controller */,
 				114366B524E9073500102B62 /* AppManager */,
 				114366B124E9063B00102B62 /* AppLogManager */,
 			);
@@ -308,8 +373,13 @@
 				114366B424E9063B00102B62 /* AppLogManager.m in Sources */,
 				114366AB24E900C300102B62 /* main.m in Sources */,
 				114366AA24E900C300102B62 /* ViewController.m in Sources */,
+				111E0C5024E923A800E83B5E /* DriveView.m in Sources */,
 				114366AC24E900C300102B62 /* AppDelegate.m in Sources */,
+				111E0C5324E9255B00E83B5E /* DriveModel.m in Sources */,
+				111E0C4D24E9237A00E83B5E /* DriveVC.m in Sources */,
+				111E0C5624E9290F00E83B5E /* TimeView.m in Sources */,
 				114366B824E9073500102B62 /* AppManager.m in Sources */,
+				111E0C4524E912FD00E83B5E /* HelperController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
