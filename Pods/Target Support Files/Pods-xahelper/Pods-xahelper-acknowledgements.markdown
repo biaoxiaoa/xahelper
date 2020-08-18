@@ -1,6 +1,16 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## AMapFoundation-NO-IDFA
+
+Copyright © 2014 AutoNavi. All Rights Reserved.
+
+
+## AMapNavi-NO-IDFA
+
+Copyright © 2014 AutoNavi. All Rights Reserved.
+
+
 ## CocoaLumberjack
 
 BSD 3-Clause License

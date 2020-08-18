@@ -1,2 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-xahelper/Pods-xahelper-resources.sh
+${PODS_ROOT}/AMapNavi-NO-IDFA/AMapNaviKit.framework/AMapNavi.bundle
+${PODS_ROOT}/AMapNavi-NO-IDFA/AMapNaviKit.framework/AMap.bundle
 ${PODS_CONFIGURATION_BUILD_DIR}/QMUIKit/QMUIResources.bundle
