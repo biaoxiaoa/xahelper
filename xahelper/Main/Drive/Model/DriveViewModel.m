@@ -14,11 +14,12 @@
 @interface DriveViewModel()
 @property (strong, nonatomic) SpeakManager *speaker;
 @property (assign, nonatomic) NSUInteger driveTime;//行驶计时
+@property (strong, nonatomic) NSTimer *timer;
 @property (assign, nonatomic) NSUInteger driveCumulativeTime;//行驶累计
 @property (assign, nonatomic) NSUInteger restTime;//休息计时
 @property (assign, nonatomic) NSUInteger restCumulativeTime;//休息累计
-@property(strong, nonatomic)NSTimer *timer;
 @property (assign, nonatomic) NSUInteger speakTime;
+@property (assign, nonatomic) NSUInteger saveTime;//进入后台前记录时间
 @end
 @implementation DriveViewModel
 - (instancetype)init
@@ -26,9 +27,11 @@
     self = [super init];
     if (self) {
         [self initTimer];
+        [self initNotifaction];
     }
     return self;
 }
+#pragma mark 初始化计时器
 -(void)initTimer{
     self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(timing) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop]addTimer:self.timer forMode:NSRunLoopCommonModes];
@@ -79,7 +82,6 @@
                 message = [NSString stringWithFormat:@"%@,您已连续行驶%ld分钟",message,minute];
             }
         }
-        DDLogVerbose(@"%@",message);
         [self speakMessage:message];
         self.speakTime = 0;
     }
@@ -104,7 +106,7 @@
 }
 #pragma mark 行驶状态
 -(void)driveSatatus{
-    [self speakMessage:@"注意安全"];
+    [self speakMessage:@"行车不规范"];
     self.status = DriveStatusDriving;
     self.restTime = 0;
 }
@@ -156,7 +158,33 @@
         [self.delegate cumulativeTimeHour:hour minute:minute second:second];
     }
 }
+#pragma mark 前后台通知
+-(void)initNotifaction{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
+}
 
+#pragma mark 进入后台
+-(void)appWillEnterBackground{
+    DDLogVerbose(@"进入后台");
+    self.saveTime = [[NSDate date]timeIntervalSince1970];
+}
+
+#pragma mark 进入前台
+-(void)applicationDidBecomeActive{
+    DDLogVerbose(@"进入前台");
+    NSUInteger nowTime = [[NSDate date]timeIntervalSince1970];
+    NSUInteger intereval =nowTime - self.saveTime;
+    if (self.status == DriveStatusDriving) {
+        self.driveTime = self.driveTime + intereval;
+        self.driveCumulativeTime = self.driveCumulativeTime + intereval;
+    }else if (self.status == DriveStatusResting) {
+        self.restTime = self.restTime + intereval;
+        self.restCumulativeTime = self.restCumulativeTime + intereval;
+    }
+}
+
+#pragma mark 播报
 -(void)speakMessage:(NSString *)message{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         [self.speaker speakMessage:message];
