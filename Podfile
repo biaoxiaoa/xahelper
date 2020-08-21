@@ -6,5 +6,6 @@ target 'xahelper' do
   pod 'MyLayout'
   pod 'QMUIKit'
   pod 'LookinServer', :configurations => ['Debug']
+  pod 'AMapNavi-NO-IDFA'
 end
 
